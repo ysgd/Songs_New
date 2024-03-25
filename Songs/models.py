@@ -32,8 +32,9 @@ class User(AbstractUser):
 
 class Song(models.Model):
   SongName = models.CharField(max_length=50)
-  SongMedia = models.FileField(upload_to="Sounds")
+  SongMedia = models.FileField(upload_to="Sounds",null=True)
   SongGenre = models.ManyToManyField(Genre)
+  SongArtist = models.ManyToManyField(Artist)
   SongAlbum = models.ForeignKey(Album, on_delete=models.SET_NULL,null=True, related_name='song_album')
   Description = models.TextField()
   CreatedBy = models.ForeignKey(User, on_delete= models.SET_NULL, null=True, related_name='song_creator')

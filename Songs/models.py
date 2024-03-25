@@ -24,7 +24,7 @@ class Album(models.Model):
   
 class User(AbstractUser):
   username = models.CharField(max_length=40, unique=True)
-  password = models.CharField(max_length=50)
+  password = models.CharField()
   email = models.EmailField(unique=True)
   
   USERNAME_FIELD = 'email'
